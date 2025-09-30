@@ -4,7 +4,6 @@
 
 Inside of this Astro project, you'll see the following folders and files:
 
-```text
 ```
 wpg-basic
 ├──public
@@ -65,7 +64,6 @@ wpg-basic
 ├──README.md
 ├──tsconfig.json
 └──.gitignore
-```
 ```
 
 ## 🧞 Commands
