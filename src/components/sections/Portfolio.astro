@@ -1,0 +1,116 @@
+---
+import { Icon } from "astro-icon/components";
+
+const portfolioItems = [
+  {
+    title: "Tech Startup Branding",
+    category: "Business Cards & Stationery",
+    description: "Complete branding package for innovative tech company",
+    image: "src/assets/background.svg",
+  },
+  {
+    title: "Restaurant Menu Design",
+    category: "Menu & Signage",
+    description: "Elegant menu design with matching storefront signage",
+    image: "src/assets/background.svg",
+  },
+  {
+    title: "Event Marketing Materials",
+    category: "Banners & Flyers",
+    description:
+      "Large format banners and promotional materials for music festival",
+    image: "src/assets/background.svg",
+  },
+  {
+    title: "Corporate Annual Report",
+    category: "Booklets & Reports",
+    description: "Professional annual report with premium binding",
+    image: "src/assets/background.svg",
+  },
+  {
+    title: "Retail Packaging Design",
+    category: "Custom Packaging",
+    description: "Eco-friendly packaging for sustainable beauty brand",
+    image: "src/assets/background.svg",
+  },
+  {
+    title: "Wedding Invitations",
+    category: "Invitations & Cards",
+    description: "Luxury wedding invitation suite with gold foil accents",
+    image: "src/assets/background.svg",
+  },
+];
+---
+
+<section id="portfolio" class="bg-gray-100">
+  <div class="mb-8 text-center">
+    <h2 class="section-title">Our Portfolio</h2>
+    <p>
+      Discover the quality and creativity that sets us apart. Each project
+      showcases our commitment to excellence and attention to detail.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      portfolioItems.map((item, index) => (
+        <div class="group relative overflow-hidden rounded-2xl shadow">
+          <img
+            src={item.image}
+            alt={`${item.title} - ${item.category}`}
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          {/* Desktop hover */}
+          <div class="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white flex items-center justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-bold mb-1">{item.title}</h3>
+                <h5 class="text-sm text-blue-300 font-medium mb-2">
+                  {item.category}
+                </h5>
+                <span class="text-sm opacity-90">{item.description}</span>
+              </div>
+              {/* <Icon name="ui/external-link" class="text-white h-6 w-6" />x */}
+            </div>
+          </div>
+          {/* Toggle version */}
+          <div class="lg:hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-6 py-4 text-white">
+            <button
+              class="toggle-btn w-full flex items-center justify-between text-left gap-2"
+              data-target={`desc-${index}`}
+            >
+              <h3>{item.title}</h3>
+              <Icon
+                name="ui/chevron-up"
+                class="icon-toggle h-6 w-6 transition-transform duration-500"
+              />
+            </button>
+            <div id={`desc-${index}`} class="hidden mt-2 text-sm">
+              <h5 class="text-blue-300 font-medium mb-2">{item.category}</h5>
+              <span class="text-sm opacity-90">{item.description}</span>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".toggle-btn");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.dataset.target;
+        const target = document.getElementById(targetId!);
+        const icon = btn.querySelector(".icon-toggle");
+
+        if (target && icon) {
+          target.classList.toggle("hidden");
+          icon.classList.toggle("rotate-180");
+        }
+      });
+    });
+  });
+</script>

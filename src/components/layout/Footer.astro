@@ -1,0 +1,98 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socials = [
+  { icon: "socials/whatsapp", name: "WhatsApp", link: "https://whatsapp.com" },
+  { icon: "socials/facebook", name: "Facebook", link: "https://facebook.com" },
+  { icon: "socials/linkedin", name: "LinkedIn", link: "https://linkedin.com" },
+  {
+    icon: "socials/instagram",
+    name: "Instagram",
+    link: "https://instagram.com",
+  },
+];
+
+const services = [
+  { name: "Business Cards", link: "" },
+  { name: "Brochures & Flyers", link: "" },
+  { name: "Banners & Signs", link: "" },
+  { name: "Posters & Prints", link: "" },
+  { name: "Packaging", link: "" },
+  { name: "Apparel Printing", link: "" },
+];
+
+const contact = [
+  {
+    icon: "contact/map-pin",
+    description: "123 Print Street, Design City, DC 12345",
+  },
+  { icon: "contact/mail", description: "hello@printcraftpro.com" },
+  { icon: "contact/phone", description: "+1 (555) 123-4567" },
+];
+---
+
+<footer class="bg-gray-800 text-white px-10 lg:px-16">
+  <div
+    class="grid lg:grid-cols-3 lg:justify-items-center space-y-5 py-8 lg:py-10"
+  >
+    <div>
+      <img src="/src/assets/astro.svg" alt="Logo ASTRO" loading="lazy" />
+      <!-- <h1 class="mb-4">"Logo Negocio"</h1> -->
+      <span>
+        Your trusted partner for premium printing solutions. We bring your ideas
+        to life with exceptional quality and lightning-fast turnaround times.
+      </span>
+      <div class="flex space-x-3 mt-4">
+        {
+          socials.map((social) => (
+            <a
+              aria-label={social.name}
+              href={social.link}
+              target="_blank"
+              class="text-xl p-2 rounded-lg bg-gray-700 hover:bg-white hover:text-black transition-all duration-300 hover:scale-100"
+            >
+              <Icon name={social.icon} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div>
+      <h3 class="mb-2">Services</h3>
+      <ul class="text-gray-300 space-y-2">
+        {
+          services.map((service) => (
+            <li class="hover:text-white cursor-pointer">{service.name}</li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h3 class="mb-2">Contact</h3>
+      <ul class="text-gray-300 space-y-2">
+        {
+          contact.map((detail) => (
+            <li class="flex items-center">
+              <Icon name={detail.icon} class="mr-2" />
+              <span>{detail.description}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <hr />
+  <div class="text-gray-400 flex items-center justify-between">
+    <h4 class="text-sm lg:text-base py-4 lg:py-5">
+      &copy; {new Date().getFullYear()}
+      <span class="font-extrabold">ms</span>. All rights reserved.
+    </h4>
+    <a
+      aria-label="going up"
+      href="#home"
+      class="bg-gray-700 p-3 rounded-lg hover:-translate-y-2 duration-500"
+    >
+      <Icon name="ui/arrow-up" class="text-white" />
+    </a>
+  </div>
+</footer>

@@ -1,0 +1,97 @@
+---
+import { Icon } from "astro-icon/components";
+
+const navbarItems = [
+  { name: "Home", ref: "#home" },
+  { name: "Services", ref: "#services" },
+  { name: "Portfolio", ref: "#portfolio" },
+  { name: "About", ref: "#about" },
+  { name: "Contact", ref: "#contact" },
+];
+---
+
+<header class="fixed top-0 left-0 w-full glass-effect z-50 shadow">
+  <nav
+    class="px-6 lg:px-10 py-4 flex justify-between items-center relative h-10 lg:h-14"
+  >
+    <img src="/src/assets/astro.svg" alt="Logo ASTRO" class="h-9 lg:h-12" />
+    <input id="menu-toggle" type="checkbox" class="hidden" />
+    <ul class="hidden lg:flex space-x-6">
+      {
+        navbarItems.map((item) => (
+          <li>
+            <a
+              href={item.ref}
+              class="px-4 py-2 rounded-lg hover:underline hover:underline-offset-2 hover:text-blue-700"
+            >
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="https://whatsapp.com" class="button-primary">Get Quote</a>
+      </li>
+    </ul>
+    <label
+      for="menu-toggle"
+      class="lg:hidden cursor-pointer p-2 rounded-lg hover:bg-gray-100 hover:text-blue-700 z-50"
+      ><Icon name="ui/menu" class="text-xl" /></label
+    >
+  </nav>
+</header>
+<!-- overlay -->
+<div id="overlay" class="hidden fixed inset-0 bg-black/30 z-40"></div>
+<!-- mobile menu -->
+<ul
+  id="mobile-menu"
+  class="hidden flex-col text-center fixed top-[42px] right-6 rounded-md bg-white w-48 z-50"
+>
+  {
+    navbarItems.map((item) => (
+      <li>
+        <a
+          href={item.ref}
+          class="nav-item block px-4 py-2 hover:bg-gray-100 hover:text-blue-700 duration-300"
+        >
+          {item.name}
+        </a>
+      </li>
+    ))
+  }
+  <hr class="text-gray-300" />
+  <li>
+    <a
+      href="https://whatsapp.com"
+      class="flex items-center gap-2 justify-center hover:translate-x-1 mx-8 my-4 bg-blue-700 border-2 border-blue-700 text-white px-2 py-1 rounded-lg hover:bg-blue-800 hover:border-blue-800 duration-500"
+    >
+      <span>Get Quote</span>
+      <Icon name="ui/arrow-right" />
+    </a>
+  </li>
+</ul>
+<script>
+  const toggle = document.getElementById("menu-toggle") as HTMLInputElement;
+  const menu = document.getElementById("mobile-menu") as HTMLElement;
+  const overlay = document.getElementById("overlay") as HTMLElement;
+  const navItems = document.querySelectorAll(".nav-item");
+
+  function closeMenu() {
+    toggle.checked = false;
+    menu.classList.add("hidden");
+    overlay.classList.add("hidden");
+  }
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      menu.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    } else {
+      closeMenu();
+    }
+  });
+
+  overlay.addEventListener("click", closeMenu);
+
+  navItems.forEach((item) => item.addEventListener("click", closeMenu));
+</script>

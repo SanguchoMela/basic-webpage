@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  id="home"
+  class="grid grid-cols-1 lg:grid-cols-2 place-items-center lg:gap-10 gap-6"
+>
+  <div class="space-y-6 text-center lg:text-left">
+    <h1 class="leading-snug">
+      Description
+      <br />
+      Slogan
+      <br />
+      <span>
+        <h2>"Mi Negocio"</h2>
+      </span>
+    </h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi omnis
+      perferendis excepturi reiciendis!
+    </p>
+    <ul class="text-gray-600 space-y-2">
+      <li class="flex items-center">
+        <Icon name="ui/check-circle" class="text-green-500 mr-5" />
+        <span>24-48 hour turnaround</span>
+      </li>
+      <li class="flex items-center">
+        <Icon name="ui/check-circle" class="text-green-500 mr-5" />
+        <span>Premiun quality materials</span>
+      </li>
+      <li class="flex items-center">
+        <Icon name="ui/check-circle" class="text-green-500 mr-5" />
+        <span>Free design consultation</span>
+      </li>
+    </ul>
+    <div class="flex space-x-5">
+      <button
+        class="button-primary flex items-center gap-2 hover:translate-x-1"
+      >
+        <span> Get instant quote </span>
+        <Icon name="ui/arrow-right" class="text-xl text-white" />
+      </button>
+      <button class="button-secondary">View portfolio</button>
+    </div>
+  </div>
+  <img src="src/assets/background.svg" alt="Hero" class="lg:p-5" />
+</section>

@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    icon: "services/credit-card",
+    title: "Business Cards",
+    description: "Premium business cards that make lasting impressions",
+    features: ["Multiple finishes", "Custom designs", "Quick turnaround"],
+    price: "Starting at $29",
+  },
+  {
+    icon: "services/file-text",
+    title: "Brochures & Flyers",
+    description: "Eye-catching marketing materials for your business",
+    features: ["Full-color printing", "Various sizes", "Bulk discounts"],
+    price: "Starting at $49",
+  },
+  {
+    icon: "services/megaphone",
+    title: "Banners & Signs",
+    description: "Large format printing for maximum visibility",
+    features: ["Weather resistant", "Custom sizes", "Indoor/outdoor"],
+    price: "Starting at $89",
+  },
+  {
+    icon: "services/image",
+    title: "Posters & Prints",
+    description: "High-quality photo and art reproduction",
+    features: ["Archival quality", "Multiple papers", "Color matching"],
+    price: "Starting at $19",
+  },
+  {
+    icon: "services/package",
+    title: "Packaging",
+    description: "Custom packaging solutions for your products",
+    features: ["Die-cut options", "Eco-friendly", "Brand integration"],
+    price: "Starting at $99",
+  },
+  {
+    icon: "services/shirt",
+    title: "Apparel Printing",
+    description: "Custom t-shirts, hoodies, and promotional wear",
+    features: ["Screen printing", "Embroidery", "Heat transfer"],
+    price: "Starting at $15",
+  },
+];
+---
+
+<section id="services">
+  <div class="mb-8 text-center">
+    <h2 class="section-title">Our Services</h2>
+    <p>
+      From small business cards to large format banners, we offer comprehensive
+      printing solutions to meet all your marketing and business needs.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+    {
+      services.map((service) => (
+        <div class="py-8 px-10 rounded-xl bg-gray-100 lg:bg-white hover:shadow-2xl transition-transform hover:translate-y-[-8px] duration-700">
+          <div class="mb-3 bg-blue-600 inline-block rounded-xl">
+            <Icon name={service.icon} class="text-3xl text-white m-3" />
+          </div>
+          <h3 class="mb-2">{service.title}</h3>
+          <span class="text-gray-600">{service.description}</span>
+          <ul class="text-gray-600 space-y-1 my-4 list-disc list-inside">
+            {service.features.map((feature) => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+          <span class="font-semibold text-blue-600 lg:text-lg">
+            {service.price}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</section>

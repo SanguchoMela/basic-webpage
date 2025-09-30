@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+body {
+  @apply font-sans bg-gray-50 text-gray-900;
+}
+
+section {
+  @apply pt-11 pb-5 lg:py-20 px-6 md:px-12 lg:px-20;
+}
+
+h1 {
+  @apply font-bold text-4xl lg:text-5xl
+}
+
+h3 {
+  @apply font-semibold text-lg lg:text-xl
+}
+
+.section-title {
+  @apply text-2xl lg:text-3xl font-bold mb-4;
+}
+
+.button-primary {
+  @apply bg-blue-700 border-2 border-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 hover:border-blue-800 duration-500;
+}
+
+.button-secondary {
+  @apply bg-white text-blue-700 border-2 border-blue-700 px-4 py-2 rounded-lg hover:bg-blue-700 hover:text-white duration-500;
+}
+
+.input-field {
+  @apply my-1 border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+p {
+  @apply text-gray-600 leading-relaxed
+}
+
+.glass-effect {
+  @apply bg-white/50 backdrop-blur-lg border border-white/30;
+}
+
+/* .img-about { */
+    /* --b: 8px; */
+    /* border thickness*/
+    /* --s: 60px; */
+    /* size of the corner*/
+    /* --g: 16px; */
+    /* the gap*/
+    /* --c: #60a5fa; */
+
+    /* padding: calc(var(--b) + var(--g)); */
+    /* background-image:
+      conic-gradient(from 90deg at top var(--b) left var(--b), #0000 25%, var(--c) 0),
+      conic-gradient(from -90deg at bottom var(--b) right var(--b), #0000 25%, var(--c) 0); */
+    /* background-position:
+      var(--_p, 0%) var(--_p, 0%),
+      calc(100% - var(--_p, 0%)) calc(100% - var(--_p, 0%)); */
+    /* background-size: var(--s) var(--s); */
+    /* background-repeat: no-repeat; */
+    /* transition:
+      background-position .3s var(--_i, .3s),
+      background-size .3s calc(.3s - var(--_i, .3s)); */
+/* } */
+
+/* .img-about:hover {
+  background-size: calc(100% - var(--g)) calc(100% - var(--g));
+  --_p: calc(var(--g) / 2);
+  --_i: 0s;
+} */
+
+h2 {
+  display: inline-block;
+
+  background: linear-gradient(#60a5fa 0 0) var(--p, 0) 100% / var(--p, 0) .2em no-repeat;
+  transition: 0.5s, background-position 0s;
+  padding-bottom: 4px;
+}
+
+h2:hover {
+  --p: 100%;
+}
