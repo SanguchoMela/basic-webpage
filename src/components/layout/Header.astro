@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import AstroLogo from "../../assets/astro.svg";
 
 const navbarItems = [
   { name: "Home", ref: "#home" },
@@ -14,7 +15,7 @@ const navbarItems = [
   <nav
     class="px-6 lg:px-10 py-4 flex justify-between items-center relative h-10 lg:h-14"
   >
-    <img src="/src/assets/astro.svg" alt="Logo ASTRO" class="h-9 lg:h-12" />
+    <AstroLogo class="h-9 lg:h-12" />
     <input id="menu-toggle" type="checkbox" class="hidden" />
     <ul class="hidden lg:flex space-x-6">
       {

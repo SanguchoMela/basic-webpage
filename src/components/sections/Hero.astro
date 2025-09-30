@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import backgroundImage from "../../assets/background.svg";
 ---
 
 <section
@@ -44,5 +46,5 @@ import { Icon } from "astro-icon/components";
       <button class="button-secondary">View portfolio</button>
     </div>
   </div>
-  <img src="src/assets/background.svg" alt="Hero" class="lg:p-5" />
+  <Image src={backgroundImage} alt="Hero" loading="eager" class="lg:p-5" />
 </section>

@@ -1,43 +1,45 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import backgroundImage from "../../assets/background.svg";
 
 const portfolioItems = [
   {
     title: "Tech Startup Branding",
     category: "Business Cards & Stationery",
     description: "Complete branding package for innovative tech company",
-    image: "src/assets/background.svg",
+    image: backgroundImage,
   },
   {
     title: "Restaurant Menu Design",
     category: "Menu & Signage",
     description: "Elegant menu design with matching storefront signage",
-    image: "src/assets/background.svg",
+    image: backgroundImage,
   },
   {
     title: "Event Marketing Materials",
     category: "Banners & Flyers",
     description:
       "Large format banners and promotional materials for music festival",
-    image: "src/assets/background.svg",
+    image: backgroundImage,
   },
   {
     title: "Corporate Annual Report",
     category: "Booklets & Reports",
     description: "Professional annual report with premium binding",
-    image: "src/assets/background.svg",
+    image: backgroundImage,
   },
   {
     title: "Retail Packaging Design",
     category: "Custom Packaging",
     description: "Eco-friendly packaging for sustainable beauty brand",
-    image: "src/assets/background.svg",
+    image: backgroundImage,
   },
   {
     title: "Wedding Invitations",
     category: "Invitations & Cards",
     description: "Luxury wedding invitation suite with gold foil accents",
-    image: "src/assets/background.svg",
+    image: backgroundImage,
   },
 ];
 ---
@@ -54,7 +56,7 @@ const portfolioItems = [
     {
       portfolioItems.map((item, index) => (
         <div class="group relative overflow-hidden rounded-2xl shadow">
-          <img
+          <Image
             src={item.image}
             alt={`${item.title} - ${item.category}`}
             loading="lazy"
