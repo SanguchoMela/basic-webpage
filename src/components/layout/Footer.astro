@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import astroLogo from "../../assets/astro.svg";
 
 const socials = [
   { icon: "socials/whatsapp", name: "WhatsApp", link: "https://whatsapp.com" },
@@ -36,7 +38,7 @@ const contact = [
     class="grid lg:grid-cols-3 lg:justify-items-center space-y-5 py-8 lg:py-10"
   >
     <div>
-      <img src="/src/assets/astro.svg" alt="Logo ASTRO" loading="lazy" />
+      <Image src={astroLogo} alt="Logo ASTRO" loading="lazy" />
       <!-- <h1 class="mb-4">"Logo Negocio"</h1> -->
       <span>
         Your trusted partner for premium printing solutions. We bring your ideas
